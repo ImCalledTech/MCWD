@@ -1,0 +1,2 @@
+# MCWD
+ Minecraft World Deleter
