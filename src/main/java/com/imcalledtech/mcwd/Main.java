@@ -1,3 +1,5 @@
+// another main method because jar won't work otherwise
+
 package com.imcalledtech.mcwd;
 
 public class Main {

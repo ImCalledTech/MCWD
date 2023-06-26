@@ -13,6 +13,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        //initialise the stage and scenes
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(App.class.getResource("Main.fxml")));
         Parent root = loader.load();
         Controller controller = loader.getController();

@@ -41,12 +41,14 @@ public class Controller {
 
     @FXML
     protected Label getTitle() {
+        //gets the title of the gui so that the main method can change it
         return title;
     }
 
     @FXML
     private void selectDir() {
 
+        // choose directory method for button
         DirectoryChooser chooser = new DirectoryChooser();
         chooser.setInitialDirectory(new File(System.getenv("APPDATA")+"/.minecraft"));
         chooser.setTitle("Select .minecraft folder");
@@ -60,6 +62,8 @@ public class Controller {
 
     @FXML
     private void deleteAll() throws IOException {
+
+        // deletes all files that the search found and then clears the tableview
         if (!tableView.getItems().isEmpty()) {
             for (File dir : speedruns) {
                 FileUtils.deleteDirectory(dir);
@@ -70,6 +74,7 @@ public class Controller {
 
     public void initialize(String path) {
 
+        // sets up the tableview with columns???
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         pathColumn.setCellValueFactory(new PropertyValueFactory<>("path"));
         sizeColumn.setCellValueFactory(new PropertyValueFactory<>("size"));
@@ -79,6 +84,8 @@ public class Controller {
     }
 
     private void scanDirectories(String pathArg) {
+
+        // scans the given directory for subdirectories and adds their info to the tableview and a separate array
 
         ObservableList<DirectoryInfo> directoryList = FXCollections.observableArrayList();
 
@@ -97,6 +104,8 @@ public class Controller {
     }
 
     public static class DirectoryInfo {
+
+        // data type for observablelist???
         private String name;
         private String path;
         private long size;
