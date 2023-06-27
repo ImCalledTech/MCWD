@@ -50,7 +50,7 @@ public class Controller {
 
         // choose directory method for button
         DirectoryChooser chooser = new DirectoryChooser();
-        chooser.setInitialDirectory(new File(System.getenv("APPDATA")+"/.minecraft"));
+        chooser.setInitialDirectory(new File(getOsMinecraftFolder()));
         chooser.setTitle("Select .minecraft folder");
         Stage stage = (Stage) selectDirButton.getScene().getWindow();
         File selectedDir = chooser.showDialog(stage);
@@ -101,6 +101,21 @@ public class Controller {
         }
 
         tableView.setItems(directoryList);
+    }
+
+    private String getOsMinecraftFolder() {
+
+        // gets user's .minecraft folder, depending on their os
+        String os = Constants.OPERATING_SYSTEM;
+        if (os.contains("win")) {
+            return Constants.WINDOWS_MINECRAFT_FOLDER;
+        } else if (os.contains("mac")) {
+            return Constants.MACOS_MINECRAFT_FOLDER;
+        } else if (os.contains("nix") || os.contains("nux") || os.contains("linux")) {
+            return Constants.LINUX_MINECRAFT_FOLDER;
+        } else {
+            return Constants.USER_HOME;
+        }
     }
 
     public static class DirectoryInfo {
