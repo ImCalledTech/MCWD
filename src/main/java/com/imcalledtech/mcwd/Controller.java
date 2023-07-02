@@ -77,7 +77,7 @@ public class Controller {
         }
     }
 
-    public void initialize(String path) {
+    protected void initialize(String path) {
 
         // sets up the tableview with columns???
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
