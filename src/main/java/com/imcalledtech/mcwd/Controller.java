@@ -52,7 +52,7 @@ public class Controller {
         DirectoryChooser chooser = new DirectoryChooser();
         File minecraftFolder = new File((String) App.options.getOptions("default_minecraft_folder"));
         if (!minecraftFolder.exists() || !minecraftFolder.isDirectory()) {
-            App.options.createOptionsFile(Constants.OPTIONS_FILE_PATH);
+            App.options.createDefaultOptionsFile();
             minecraftFolder = new File(App.getOsMinecraftFolder());
         }
         chooser.setInitialDirectory(minecraftFolder);

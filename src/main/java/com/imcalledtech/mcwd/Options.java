@@ -3,6 +3,7 @@ package com.imcalledtech.mcwd;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
+import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.Reader;
@@ -25,12 +26,16 @@ public class Options {
     Options(File optionsFile) throws IOException {
         // constructor that creates a new options file if it doesn't exist and adds the default options
         this.optionsFile = optionsFile;
-        if (optionsFile.exists()) {
+        if (optionsFile.exists() && optionsFile.isFile()) {
             for (int i=0; i<Constants.OPTIONS_KEYS.length; i++) {
                 if (getOptions(Constants.OPTIONS_KEYS[i]) == null) {
                     createOptionsFile(optionsFile);
                 }
             }
+        } else if (optionsFile.isDirectory()) {
+            FileUtils.deleteDirectory(optionsFile);
+            optionsFile.createNewFile();
+            createOptionsFile(optionsFile);
         } else {
             optionsFile.getParentFile().mkdirs();
             optionsFile.createNewFile();
@@ -39,12 +44,16 @@ public class Options {
 
     }
 
-    protected void createOptionsFile(File optionsFile) throws IOException {
+    private void createOptionsFile(File optionsFile) throws IOException {
         Map<String, String> data = new HashMap<>();
         data.put("default_minecraft_folder", App.getOsMinecraftFolder());
         Writer writer = new FileWriter(optionsFile);
         gson.toJson(data, writer);
         writer.close();
+    }
+
+    protected void createDefaultOptionsFile() throws IOException {
+        createOptionsFile(Constants.OPTIONS_FILE_PATH);
     }
 
     public <T> T getOptions(String optionKey) throws IOException {
