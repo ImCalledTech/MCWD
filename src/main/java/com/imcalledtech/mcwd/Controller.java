@@ -60,7 +60,7 @@ public class Controller {
         Stage stage = (Stage) selectDirButton.getScene().getWindow();
         File selectedDir = chooser.showDialog(stage);
         if (selectedDir != null) {
-            initialize(selectedDir.getAbsolutePath()+"/saves");
+            initialize(selectedDir.getAbsolutePath()+"\\saves");
         }
 
     }
