@@ -10,4 +10,6 @@ JAR file to run the program. Having problems? Try running it from your command p
 ### Editing the options
 The options file (`options.json`) should be found in your user's home directory, in the `.imcalledtech` folder and then in the
 `MCWD` folder. Paste your default minecraft folder in here so that you don't have to navigate to it every time you want to
-use the application.
+use the application. **Make sure that if there are backslashes, make them double** (i.e. from `\` to `\\`) otherwise the
+program will reset the directory to the default minecraft folder. If your path uses forward slashes, there is no need to change
+anything.
