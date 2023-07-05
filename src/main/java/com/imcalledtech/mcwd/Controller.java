@@ -100,7 +100,7 @@ public class Controller {
             File[] directories = rootDirectory.listFiles(file -> file.isDirectory() && file.getName().startsWith(prefix));
             if (directories != null) {
                 for (File dir : directories) {
-                    directoryList.add(new DirectoryInfo(dir.getName(), dir.getAbsolutePath(), FileUtils.sizeOfDirectory(dir)));
+                    directoryList.add(new DirectoryInfo(dir.getName(), dir.getAbsolutePath(), fileSize(dir)));
                     speedruns.add(dir);
                 }
             }
@@ -109,14 +109,31 @@ public class Controller {
         tableView.setItems(directoryList);
     }
 
+    private String fileSize(File file) {
+        String[] measurements = {"Bytes", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB"};
+        double size = FileUtils.sizeOfDirectory(file);
+        int i = 0;
+        while (size >= 1024 && i < measurements.length-1) {
+            size /= 1024;
+            i++;
+        }
+        if (size == 1) {
+            return "1 Byte";
+        } else if (size % 1 == 0) {
+            return String.format("%.0f", size)+" "+measurements[i];
+        } else {
+            return String.format("%.1f", size)+" "+measurements[i];
+        }
+    }
+
     public static class DirectoryInfo {
 
         // data type for observablelist???
         private String name;
         private String path;
-        private long size;
+        private String size;
 
-        public DirectoryInfo(String name, String path, long size) {
+        public DirectoryInfo(String name, String path, String size) {
             this.name = name;
             this.path = path;
             this.size = size;
@@ -130,7 +147,7 @@ public class Controller {
             return path;
         }
 
-        public long getSize() {
+        public String getSize() {
             return size;
         }
 
