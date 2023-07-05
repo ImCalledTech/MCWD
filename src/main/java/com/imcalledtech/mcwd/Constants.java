@@ -27,4 +27,6 @@ public class Constants {
 
     public static final String[] OPTIONS_KEYS = {"default_minecraft_folder"};
 
+    public static final Class<?>[] OPTIONS_TYPES = {String.class};
+
 }

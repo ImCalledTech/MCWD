@@ -53,7 +53,7 @@ public class Options {
     }
 
     protected void createDefaultOptionsFile() throws IOException {
-        createOptionsFile(Constants.OPTIONS_FILE_PATH);
+        createOptionsFile(optionsFile);
     }
 
     public <T> T getOptions(String optionKey) throws IOException {
@@ -79,10 +79,16 @@ public class Options {
         }
         if (readDataKeys.contains(optionKey)) {
             T optionValue = readDataValues.get(0);
-            for (int i = 0; !readDataKeys.get(i).equals(optionKey); i++) {
-                optionValue = readDataValues.get(i);
+            int i = 0;
+            while (!readDataKeys.get(i).equals(optionKey)) {
+                i++;
             }
-            return optionValue;
+            if (optionValue.getClass() == Constants.OPTIONS_TYPES[i]) {
+                return readDataValues.get(i);
+            } else {
+                createOptionsFile(optionsFile);
+                return getOptions(optionKey);
+            }
         } else {
             return null;
         }
