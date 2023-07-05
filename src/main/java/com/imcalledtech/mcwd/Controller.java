@@ -77,7 +77,7 @@ public class Controller {
         }
     }
 
-    protected void initialize(String path) {
+    protected void initialize(String path) throws IOException {
 
         // sets up the tableview with columns???
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -88,7 +88,7 @@ public class Controller {
 
     }
 
-    private void scanDirectories(String pathArg) {
+    private void scanDirectories(String pathArg) throws IOException {
 
         // scans the given directory for subdirectories and adds their info to the tableview and a separate array
 
@@ -96,13 +96,8 @@ public class Controller {
 
         File rootDirectory = new File(pathArg);
         if (rootDirectory.exists() && rootDirectory.isDirectory()) {
-            File[] directories = rootDirectory.listFiles(file -> {
-                try {
-                    return file.isDirectory() && file.getName().startsWith(App.options.getOptions("search_prefix"));
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            });
+            String prefix = App.options.getOptions("search_prefix");
+            File[] directories = rootDirectory.listFiles(file -> file.isDirectory() && file.getName().startsWith(prefix));
             if (directories != null) {
                 for (File dir : directories) {
                     directoryList.add(new DirectoryInfo(dir.getName(), dir.getAbsolutePath(), FileUtils.sizeOfDirectory(dir)));

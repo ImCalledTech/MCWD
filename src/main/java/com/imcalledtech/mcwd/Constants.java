@@ -25,10 +25,10 @@ public class Constants {
 
     public static final File OPTIONS_FILE_PATH = new File(USER_HOME+File.separator+".imcalledtech"+File.separator+"MCWD"+File.separator+"options.json");
 
-    public static final String[] OPTIONS_KEYS = {"default_minecraft_folder", "search_prefix"};
+    public static final String[] OPTIONS_KEYS = {"default_minecraft_folder", "search_prefix", "search_on_application_start"};
 
-    public static final Class<?>[] OPTIONS_TYPES = {String.class, String.class};
+    public static final Class<?>[] OPTIONS_TYPES = {String.class, String.class, Boolean.class};
 
-    public static final Object[] OPTIONS_DEFAULTS = {App.getOsMinecraftFolder(), "Random Speedrun #"};
+    public static final Object[] OPTIONS_DEFAULTS = {App.getOsMinecraftFolder(), "Random Speedrun #", true};
 
 }

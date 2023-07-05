@@ -24,8 +24,10 @@ public class App extends Application {
         Controller controller = loader.getController();
         String title = "MCWD v"+Constants.APP_VER;
         controller.getTitle().setText(title);
-        controller.initialize(options.getOptions("default_minecraft_folder")+File.separator+"saves");
         stage.setTitle(title);
+        if (options.getOptions("search_on_application_start")) {
+            controller.initialize(options.getOptions("default_minecraft_folder")+File.separator+"saves");
+        }
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();

@@ -82,12 +82,11 @@ public class Options {
             e.printStackTrace();
         }
         if (readDataKeys.contains(optionKey)) {
-            T optionValue = readDataValues.get(0);
             int i = 0;
             while (!readDataKeys.get(i).equals(optionKey)) {
                 i++;
             }
-            if (optionValue.getClass() == Constants.OPTIONS_TYPES[i]) {
+            if (readDataValues.get(i).getClass() == Constants.OPTIONS_TYPES[i]) {
                 return readDataValues.get(i);
             } else {
                 createOptionsFile(optionsFile);
