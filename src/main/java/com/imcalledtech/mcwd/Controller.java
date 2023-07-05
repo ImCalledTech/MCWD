@@ -96,7 +96,13 @@ public class Controller {
 
         File rootDirectory = new File(pathArg);
         if (rootDirectory.exists() && rootDirectory.isDirectory()) {
-            File[] directories = rootDirectory.listFiles(file -> file.isDirectory() && file.getName().startsWith("Random Speedrun #"));
+            File[] directories = rootDirectory.listFiles(file -> {
+                try {
+                    return file.isDirectory() && file.getName().startsWith(App.options.getOptions("search_prefix"));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
             if (directories != null) {
                 for (File dir : directories) {
                     directoryList.add(new DirectoryInfo(dir.getName(), dir.getAbsolutePath(), FileUtils.sizeOfDirectory(dir)));

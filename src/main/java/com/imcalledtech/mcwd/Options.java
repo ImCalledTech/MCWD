@@ -46,8 +46,10 @@ public class Options {
 
     private void createOptionsFile(File optionsFile) throws IOException {
         // creates a new options file with default options
-        Map<String, String> data = new HashMap<>();
-        data.put("default_minecraft_folder", App.getOsMinecraftFolder());
+        Map<String, Object> data = new HashMap<>();
+        for (int i=0; i<Constants.OPTIONS_KEYS.length; i++) {
+            data.put(Constants.OPTIONS_KEYS[i], Constants.OPTIONS_DEFAULTS[i]);
+        }
         Writer writer = new FileWriter(optionsFile);
         gson.toJson(data, writer);
         writer.close();
