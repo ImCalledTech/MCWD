@@ -6,7 +6,7 @@
 
     <groupId>com.imcalledtech</groupId>
     <artifactId>MCWD</artifactId>
-    <version>1.1</version>
+    <version>1.1.1</version>
     <name>MCWD</name>
 
     <properties>
