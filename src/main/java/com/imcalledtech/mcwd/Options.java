@@ -45,6 +45,7 @@ public class Options {
     }
 
     private void createOptionsFile(File optionsFile) throws IOException {
+        // creates a new options file with default options
         Map<String, String> data = new HashMap<>();
         data.put("default_minecraft_folder", App.getOsMinecraftFolder());
         Writer writer = new FileWriter(optionsFile);
@@ -53,6 +54,7 @@ public class Options {
     }
 
     protected void createDefaultOptionsFile() throws IOException {
+        // creates a new options file with default options in the default options path
         createOptionsFile(optionsFile);
     }
 
