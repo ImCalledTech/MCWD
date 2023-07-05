@@ -9,7 +9,7 @@ public class Constants {
 
     // constants
     
-    public static final String APP_VER = "1.1.1";
+    public static final String APP_VER = "1.1.2";
 
     public static final ObservableList<Controller.DirectoryInfo> EMPTY_LIST = FXCollections.emptyObservableList();
 
