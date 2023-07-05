@@ -23,7 +23,7 @@ public class Constants {
 
     public static final String LINUX_MINECRAFT_FOLDER = USER_HOME+"/.minecraft";
 
-    public static final File OPTIONS_FILE_PATH = new File(USER_HOME+"\\.imcalledtech\\MCWD\\options.json");
+    public static final File OPTIONS_FILE_PATH = new File(USER_HOME+File.separator+".imcalledtech"+File.separator+"MCWD"+File.separator+"options.json");
 
     public static final String[] OPTIONS_KEYS = {"default_minecraft_folder"};
 

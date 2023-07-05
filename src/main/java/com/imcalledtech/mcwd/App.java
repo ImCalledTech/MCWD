@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -23,7 +24,7 @@ public class App extends Application {
         Controller controller = loader.getController();
         String title = "MCWD v"+Constants.APP_VER;
         controller.getTitle().setText(title);
-        controller.initialize(options.getOptions("default_minecraft_folder")+"\\saves");
+        controller.initialize(options.getOptions("default_minecraft_folder")+File.separator+"saves");
         stage.setTitle(title);
         stage.setScene(new Scene(root));
         stage.setResizable(false);
