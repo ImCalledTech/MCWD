@@ -44,8 +44,8 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Actions">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Select minecraft folder" />
-              <MenuItem mnemonicParsing="false" text="Delete all worlds" />
+                  <MenuItem mnemonicParsing="false" onAction="#selectDir" text="Select minecraft folder" />
+              <MenuItem mnemonicParsing="false" onAction="#deleteAll" text="Delete all worlds" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
