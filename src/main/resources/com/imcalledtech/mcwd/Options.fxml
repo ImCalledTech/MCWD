@@ -13,7 +13,7 @@
             <Font name="Dubai Regular" size="36.0" />
          </font>
       </Label>
-      <TextField fx:id="defaultMinecraftFolder" layoutX="14.0" layoutY="120.0" onAction="#defaultMinecraftFolderSubmit" prefHeight="26.0" prefWidth="330.0" promptText="Enter the default minecraft folder">
+      <TextField fx:id="defaultMinecraftFolder" layoutX="14.0" layoutY="120.0" onAction="#defaultMinecraftFolderSubmit" prefHeight="26.0" prefWidth="330.0" promptText="Enter your desired folder">
          <font>
             <Font name="Dubai Regular" size="11.0" />
          </font>
