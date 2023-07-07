@@ -63,6 +63,11 @@ public class MainController {
     }
 
     @FXML
+    private void openOptions() {
+        App.optionsStage.show();
+    }
+
+    @FXML
     private void selectDir() throws IOException {
 
         // choose directory method for button

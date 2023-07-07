@@ -38,7 +38,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Options" />
+                  <MenuItem mnemonicParsing="false" onAction="#openOptions" text="Options" />
               <MenuItem mnemonicParsing="false" text="Exit" />
             </items>
           </Menu>

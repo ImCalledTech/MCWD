@@ -13,6 +13,8 @@ public class App extends Application {
 
     public static Options options;
 
+    protected static Stage optionsStage;
+
     @Override
     public void start(Stage stage) throws IOException {
         // initialise the options
@@ -22,6 +24,9 @@ public class App extends Application {
         FXMLLoader optionsLoader = new FXMLLoader(App.class.getResource("Options.fxml"));
         Parent root = mainLoader.load();
         Parent optionsRoot = optionsLoader.load();
+        optionsStage = new Stage();
+        optionsStage.setTitle("Options");
+        optionsStage.setScene(new Scene(optionsRoot));
         MainController mainController = mainLoader.getController();
         String title = "MCWD v"+Constants.APP_VER;
         mainController.getTitle().setText(title);
