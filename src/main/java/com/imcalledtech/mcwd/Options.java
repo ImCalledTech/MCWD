@@ -60,27 +60,19 @@ public class Options {
         createOptionsFile(optionsFile);
     }
 
+    protected <T> void setOptions(String optionKey, T optionValue) throws IOException {
+        Map<String, T> data = getOptionsObject();
+        data.put(optionKey, optionValue);
+        Writer writer = new FileWriter(optionsFile);
+        gson.toJson(data, writer);
+        writer.close();
+    }
+
     public <T> T getOptions(String optionKey) throws IOException {
         // method that returns the value of the option specified
-        ArrayList<String> readDataKeys = null;
-        ArrayList<T> readDataValues = null;
-        Map<String, T> readData;
-        try {
-            Reader reader = new FileReader(optionsFile);
-            readData = gson.fromJson(reader, HashMap.class);
-            reader.close();
-            readDataKeys = new ArrayList<>(readData.keySet());
-            readDataValues = new ArrayList<>(readData.values());
-        } catch (JsonSyntaxException | NullPointerException e) {
-            createOptionsFile(optionsFile);
-            Reader reader = new FileReader(optionsFile);
-            readData = gson.fromJson(reader, HashMap.class);
-            reader.close();
-            readDataKeys = new ArrayList<>(readData.keySet());
-            readDataValues = new ArrayList<>(readData.values());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Map<String, T> readData = getOptionsObject();
+        ArrayList<String> readDataKeys = new ArrayList<>(readData.keySet());
+        ArrayList<T> readDataValues = new ArrayList<>(readData.values());
         if (readDataKeys.contains(optionKey)) {
             int i = 0;
             while (!readDataKeys.get(i).equals(optionKey)) {
@@ -96,6 +88,23 @@ public class Options {
             return null;
         }
 
+    }
+
+    private <T> Map<String, T> getOptionsObject() throws IOException {
+        Map<String, T> readData = null;
+        try {
+            Reader reader = new FileReader(optionsFile);
+            readData = gson.fromJson(reader, HashMap.class);
+            reader.close();
+        } catch (JsonSyntaxException | NullPointerException e) {
+            createOptionsFile(optionsFile);
+            Reader reader = new FileReader(optionsFile);
+            readData = gson.fromJson(reader, HashMap.class);
+            reader.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return readData;
     }
 
     public File getOptionsFile() {
