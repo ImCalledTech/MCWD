@@ -13,12 +13,12 @@ import javafx.stage.Stage;
 
 import org.apache.commons.io.FileUtils;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.awt.Desktop;
 
 public class MainController {
 

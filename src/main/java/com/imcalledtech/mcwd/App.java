@@ -8,7 +8,6 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Objects;
 
 public class App extends Application {
 
@@ -19,9 +18,11 @@ public class App extends Application {
         // initialise the options
         options = new Options(Constants.OPTIONS_FILE_PATH);
         //initialise the stage and scenes
-        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(App.class.getResource("Main.fxml")));
-        Parent root = loader.load();
-        MainController mainController = loader.getController();
+        FXMLLoader mainLoader = new FXMLLoader(App.class.getResource("Main.fxml"));
+        FXMLLoader optionsLoader = new FXMLLoader(App.class.getResource("Options.fxml"));
+        Parent root = mainLoader.load();
+        Parent optionsRoot = optionsLoader.load();
+        MainController mainController = mainLoader.getController();
         String title = "MCWD v"+Constants.APP_VER;
         mainController.getTitle().setText(title);
         stage.setTitle(title);
