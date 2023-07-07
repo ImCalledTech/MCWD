@@ -3,6 +3,7 @@ module com.imcalledtech.mcwd {
     requires javafx.fxml;
     requires commons.io;
     requires com.google.gson;
+    requires java.desktop;
 
 
     opens com.imcalledtech.mcwd to javafx.fxml;

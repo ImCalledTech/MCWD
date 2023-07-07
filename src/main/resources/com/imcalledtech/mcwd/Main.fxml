@@ -12,24 +12,24 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.imcalledtech.mcwd.MainController">
    <children>
-      <Button fx:id="selectDirButton" layoutX="325.0" layoutY="100.0" mnemonicParsing="false" onAction="#selectDir" text="Select minecraft folder">
+      <Button fx:id="selectDirButton" layoutX="325.0" layoutY="130.0" mnemonicParsing="false" onAction="#selectDir" text="Select minecraft folder">
          <font>
             <Font name="Dubai Regular" size="14.0" />
          </font>
       </Button>
-      <Label fx:id="title" alignment="CENTER" layoutX="240.0" layoutY="14.0" prefHeight="86.0" prefWidth="320.0" text="MCWD v1.1.2">
+      <Label fx:id="title" alignment="CENTER" layoutX="240.0" layoutY="30.0" prefHeight="86.0" prefWidth="320.0" text="MCWD v1.1.2.1">
          <font>
             <Font name="Dubai Regular" size="48.0" />
          </font>
       </Label>
-      <TableView fx:id="tableView" layoutY="150.0" prefHeight="200.0" prefWidth="800.0">
+      <TableView fx:id="tableView" layoutY="184.0" prefHeight="200.0" prefWidth="800.0">
         <columns>
           <TableColumn fx:id="nameColumn" prefWidth="160.0" resizable="false" text="Name" />
           <TableColumn fx:id="pathColumn" minWidth="0.0" prefWidth="540.0" resizable="false" text="Path to world" />
             <TableColumn fx:id="sizeColumn" prefWidth="100.0" resizable="false" text="File size" />
         </columns>
       </TableView>
-      <Button layoutX="327.0" layoutY="393.0" mnemonicParsing="false" onAction="#deleteAll" text="Delete all worlds">
+      <Button layoutX="327.0" layoutY="420.0" mnemonicParsing="false" onAction="#deleteAll" text="Delete all worlds">
          <font>
             <Font name="Dubai Regular" size="18.0" />
          </font>
@@ -50,8 +50,8 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="Github repository" />
-                  <MenuItem mnemonicParsing="false" text="Discord" />
+              <MenuItem mnemonicParsing="false" onAction="#github" text="Github repository" />
+                  <MenuItem mnemonicParsing="false" onAction="#discord" text="Discord" />
             </items>
           </Menu>
         </menus>

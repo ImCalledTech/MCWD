@@ -15,7 +15,10 @@ import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.awt.Desktop;
 
 public class MainController {
 
@@ -43,6 +46,20 @@ public class MainController {
     protected Label getTitle() {
         //gets the title of the gui so that the main method can change it
         return title;
+    }
+
+    @FXML
+    private void github() throws URISyntaxException, IOException {
+        openLink("https://github.com/ImCalledTech/MCWD");
+    }
+
+    @FXML
+    private void discord() throws URISyntaxException, IOException {
+        openLink("https://discord.com/invite/BThrE9QFHw");
+    }
+
+    private void openLink(String link) throws URISyntaxException, IOException {
+        Desktop.getDesktop().browse(new URI(link));
     }
 
     @FXML
