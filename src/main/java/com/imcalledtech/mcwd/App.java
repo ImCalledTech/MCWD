@@ -21,12 +21,12 @@ public class App extends Application {
         //initialise the stage and scenes
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(App.class.getResource("Main.fxml")));
         Parent root = loader.load();
-        Controller controller = loader.getController();
+        MainController mainController = loader.getController();
         String title = "MCWD v"+Constants.APP_VER;
-        controller.getTitle().setText(title);
+        mainController.getTitle().setText(title);
         stage.setTitle(title);
         if (options.getOptions("search_on_application_start")) {
-            controller.initialize(options.getOptions("default_minecraft_folder")+File.separator+"saves");
+            mainController.initialize(options.getOptions("default_minecraft_folder")+File.separator+"saves");
         }
         stage.setScene(new Scene(root));
         stage.setResizable(false);

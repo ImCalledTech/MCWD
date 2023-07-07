@@ -11,7 +11,7 @@ public class Constants {
     
     public static final String APP_VER = "1.1.2.1";
 
-    public static final ObservableList<Controller.DirectoryInfo> EMPTY_LIST = FXCollections.emptyObservableList();
+    public static final ObservableList<MainController.DirectoryInfo> EMPTY_LIST = FXCollections.emptyObservableList();
 
     public static final String OPERATING_SYSTEM = System.getProperty("os.name").toLowerCase();
 
