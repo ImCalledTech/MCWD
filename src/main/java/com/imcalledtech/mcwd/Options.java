@@ -61,11 +61,14 @@ public class Options {
     }
 
     protected <T> void setOptions(String optionKey, T optionValue) throws IOException {
+        // options setter
         Map<String, T> data = getOptionsObject();
-        data.put(optionKey, optionValue);
-        Writer writer = new FileWriter(optionsFile);
-        gson.toJson(data, writer);
-        writer.close();
+        if (data.containsKey(optionKey)) {
+            data.put(optionKey, optionValue);
+            Writer writer = new FileWriter(optionsFile);
+            gson.toJson(data, writer);
+            writer.close();
+        }
     }
 
     public <T> T getOptions(String optionKey) throws IOException {
@@ -91,6 +94,7 @@ public class Options {
     }
 
     private <T> Map<String, T> getOptionsObject() throws IOException {
+        // reads the options json file and returns it as an object
         Map<String, T> readData = null;
         try {
             Reader reader = new FileReader(optionsFile);
