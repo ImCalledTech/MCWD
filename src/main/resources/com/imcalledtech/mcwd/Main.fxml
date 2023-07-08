@@ -17,7 +17,7 @@
             <Font name="Dubai Regular" size="14.0" />
          </font>
       </Button>
-      <Label fx:id="title" alignment="CENTER" layoutX="240.0" layoutY="30.0" prefHeight="86.0" prefWidth="320.0" text="MCWD v1.1.2.1">
+      <Label fx:id="title" alignment="CENTER" layoutX="240.0" layoutY="30.0" prefHeight="86.0" prefWidth="320.0" text="MCWD v1.2">
          <font>
             <Font name="Dubai Regular" size="48.0" />
          </font>
