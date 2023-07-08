@@ -31,6 +31,7 @@ public class App extends Application {
         optionsStage = new Stage();
         optionsStage.setTitle("Options");
         optionsStage.setScene(new Scene(optionsRoot));
+        optionsStage.setResizable(false);
         MainController mainController = mainLoader.getController();
         String title = "MCWD v"+Constants.APP_VER;
         mainController.getTitle().setText(title);
