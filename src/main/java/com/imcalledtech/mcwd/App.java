@@ -15,13 +15,15 @@ public class App extends Application {
 
     protected static Stage optionsStage;
 
+    protected static FXMLLoader optionsLoader;
+
     @Override
     public void start(Stage stage) throws IOException {
         // initialise the options
         options = new Options(Constants.OPTIONS_FILE_PATH);
         //initialise the stage and scenes
         FXMLLoader mainLoader = new FXMLLoader(App.class.getResource("Main.fxml"));
-        FXMLLoader optionsLoader = new FXMLLoader(App.class.getResource("Options.fxml"));
+        optionsLoader = new FXMLLoader(App.class.getResource("Options.fxml"));
         Parent root = mainLoader.load();
         Parent optionsRoot = optionsLoader.load();
         optionsStage = new Stage();

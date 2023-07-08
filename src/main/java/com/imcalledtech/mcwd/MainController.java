@@ -63,7 +63,9 @@ public class MainController {
     }
 
     @FXML
-    private void openOptions() {
+    private void openOptions() throws IOException {
+        OptionsController controller = App.optionsLoader.getController();
+        controller.setToJsonValues();
         App.optionsStage.show();
     }
 

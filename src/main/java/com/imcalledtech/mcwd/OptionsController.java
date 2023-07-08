@@ -20,18 +20,22 @@ public class OptionsController {
     @FXML
     private void defaultMinecraftFolderSubmit() throws IOException {
         App.options.setOptions("default_minecraft_folder", defaultMinecraftFolder.getText());
-        defaultMinecraftFolder.clear();
     }
 
     @FXML
     private void searchPrefixSubmit() throws IOException {
         App.options.setOptions("search_prefix", searchPrefix.getText());
-        searchPrefix.clear();
     }
 
     @FXML
     private void searchOnAppStartSubmit() throws IOException {
         App.options.setOptions("search_on_application_start", searchOnAppStart.isSelected());
+    }
+
+    protected void setToJsonValues() throws IOException {
+        defaultMinecraftFolder.setText(App.options.getOptions("default_minecraft_folder"));
+        searchPrefix.setText(App.options.getOptions("search_prefix"));
+        searchOnAppStart.setSelected(App.options.getOptions("search_on_application_start"));
     }
 
 }
