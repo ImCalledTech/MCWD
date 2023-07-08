@@ -9,7 +9,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.DirectoryChooser;
-import javafx.stage.Stage;
 
 import org.apache.commons.io.FileUtils;
 
@@ -85,9 +84,8 @@ public class MainController {
             minecraftFolder = new File(App.getOsMinecraftFolder());
         }
         chooser.setInitialDirectory(minecraftFolder);
-        chooser.setTitle("Select .minecraft folder");
-        Stage stage = (Stage) selectDirButton.getScene().getWindow();
-        File selectedDir = chooser.showDialog(stage);
+        chooser.setTitle("Select minecraft folder");
+        File selectedDir = chooser.showDialog(App.mainStage);
         if (selectedDir != null) {
             initialize(selectedDir.getAbsolutePath()+File.separator+"saves");
         }
