@@ -9,8 +9,9 @@ To install, go to the [releases tab of this repository](https://github.com/ImCal
 JAR binary in the latest version. Double-click the JAR file to run the program. Having problems? Try running it from your
 command prompt, with `java -jar JAR-NAME.jar`.
 ### Configuration
-The options file (`options.json`) should be found in your user's home directory, in the `.imcalledtech` folder and then in
-the `MCWD` folder. Fill in the options with your desired options and make sure to stick to the `JSON` formatting. When
-specifying your minecraft folder, **make sure that if there are backslashes, make them double** (i.e. from `\` to `\\`)
-otherwise the program will reset the directory to the default minecraft folder. If your path uses forward slashes, there
-is no need to change anything.
+As well as being able to edit the options in the application, you can manually change the options via a JSON File called
+`options.json`. It should be located in your user's home directory, in the `.imcalledtech` folder and then in the `MCWD`
+folder. Fill in the options with your desired options and make sure to stick to the `JSON` formatting. When specifying
+your minecraft folder, **make sure that if there are backslashes, make them double** (i.e. from `\` to `\\`)otherwise the
+program will reset the directory to the default minecraft folder. If your path uses forward slashes, there is no need to
+change anything.
