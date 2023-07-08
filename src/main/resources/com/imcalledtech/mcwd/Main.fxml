@@ -39,7 +39,7 @@
           <Menu mnemonicParsing="false" text="File">
             <items>
                   <MenuItem mnemonicParsing="false" onAction="#openOptions" text="Options" />
-              <MenuItem mnemonicParsing="false" text="Exit" />
+              <MenuItem mnemonicParsing="false" onAction="#exitMcwd" text="Exit" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Actions">

@@ -15,6 +15,8 @@ public class App extends Application {
 
     protected static Stage optionsStage;
 
+    protected static Stage mainStage;
+
     protected static FXMLLoader optionsLoader;
 
     @Override
@@ -39,6 +41,7 @@ public class App extends Application {
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();
+        mainStage = stage;
     }
 
     public static void main(String[] args) {

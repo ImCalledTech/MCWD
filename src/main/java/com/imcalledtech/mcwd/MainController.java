@@ -70,6 +70,11 @@ public class MainController {
     }
 
     @FXML
+    private void exitMcwd() {
+        App.mainStage.close();
+    }
+
+    @FXML
     private void selectDir() throws IOException {
 
         // choose directory method for button
